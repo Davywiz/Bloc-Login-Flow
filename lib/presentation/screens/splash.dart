@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
 import 'package:login_flow_bloc/presentation/resources/route_manager.dart';
 
 class SplashScreen extends StatefulWidget {

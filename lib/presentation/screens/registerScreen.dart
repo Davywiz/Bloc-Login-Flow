@@ -1,8 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:login_flow_bloc/app/extensions.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
+import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
+import 'package:login_flow_bloc/presentation/widgets/bottomsheet/languages.dart';
 
 class RegisterView extends HookWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -23,9 +26,9 @@ class RegisterView extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Register',
-        ),
+        title:  const Text(
+          AppStrings.register,
+        ).tr(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -33,28 +36,27 @@ class RegisterView extends HookWidget {
           children: [
             TextField(
               controller: emailController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your email here...',
+              decoration: InputDecoration(
+                hintText: AppStrings.enterEmail.tr(),
               ),
               keyboardType: TextInputType.emailAddress,
               keyboardAppearance: Brightness.dark,
             ),
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your name here...',
+              decoration: InputDecoration(
+                hintText: AppStrings.enterName.tr(),
               ),
               keyboardType: TextInputType.name,
               keyboardAppearance: Brightness.dark,
             ),
             TextField(
               controller: passwordController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your password here...',
+              decoration:  InputDecoration(
+                hintText: AppStrings.enterPassword.tr(),
               ),
               keyboardAppearance: Brightness.dark,
               obscureText: true,
-              
             ),
             TextButton(
               onPressed: () {
@@ -70,8 +72,8 @@ class RegisterView extends HookWidget {
                     );
               },
               child: const Text(
-                'Register',
-              ),
+                AppStrings.register,
+              ).tr(),
             ),
             TextButton(
               onPressed: () {
@@ -80,9 +82,10 @@ class RegisterView extends HookWidget {
                     );
               },
               child: const Text(
-                'Already registered? Log in here!',
-              ),
+                AppStrings.alreadyRegistered,
+              ).tr(),
             ),
+            const ShowLanguageButton(),
           ],
         ),
       ),

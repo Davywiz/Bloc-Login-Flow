@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
 import 'package:login_flow_bloc/presentation/resources/route_manager.dart';
 import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
 import 'package:login_flow_bloc/presentation/screens/loginScreen.dart';
@@ -19,7 +20,7 @@ class AuthScreen extends StatelessWidget {
       if (state.isLoading) {
         LoadingScreen.instance().show(
           context: context,
-          text: 'Loading...',
+          text: AppStrings.loading.tr(),
         );
       } else {
         LoadingScreen.instance().hide();
@@ -33,7 +34,7 @@ class AuthScreen extends StatelessWidget {
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
           ..showSnackBar(
-              const SnackBar(content: Text(AppStrings.registrationSuccess)));
+               SnackBar(content: const Text(AppStrings.registrationSuccess).tr()));
       }
       if (state is AuthSuccessState && state.isLogin == true) {
         print('Logging in');

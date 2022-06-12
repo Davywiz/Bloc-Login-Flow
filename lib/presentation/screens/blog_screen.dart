@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
 import 'package:login_flow_bloc/presentation/resources/route_manager.dart';
+import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class _BlogScreenState extends State<BlogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Blog Screen'),
+        title: const Text(AppStrings.blogScreen).tr(),
         actions: [
           IconButton(
             onPressed: () {

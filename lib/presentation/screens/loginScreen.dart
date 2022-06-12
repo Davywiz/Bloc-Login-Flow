@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:login_flow_bloc/app/extensions.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
+import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
 
 class LoginView extends HookWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -20,8 +22,8 @@ class LoginView extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Log in',
-        ),
+          AppStrings.login,
+        ).tr(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,20 +31,19 @@ class LoginView extends HookWidget {
           children: [
             TextField(
               controller: emailController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your email here...',
+              decoration:  InputDecoration(
+                hintText: AppStrings.enterEmail.tr(),
               ),
               keyboardType: TextInputType.emailAddress,
               keyboardAppearance: Brightness.dark,
             ),
             TextField(
               controller: passwordController,
-              decoration: const InputDecoration(
-                hintText: 'Enter your password here...',
+              decoration:  InputDecoration(
+                hintText: AppStrings.enterPassword.tr(),
               ),
               keyboardAppearance: Brightness.dark,
               obscureText: true,
-              
             ),
             TextButton(
               onPressed: () {
@@ -56,8 +57,8 @@ class LoginView extends HookWidget {
                     );
               },
               child: const Text(
-                'Log in',
-              ),
+                AppStrings.login,
+              ).tr(),
             ),
             TextButton(
               onPressed: () {
@@ -66,8 +67,8 @@ class LoginView extends HookWidget {
                     );
               },
               child: const Text(
-                'Not registered yet? Register here!',
-              ),
+                AppStrings.notRegistered,
+              ).tr(),
             ),
           ],
         ),

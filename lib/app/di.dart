@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:login_flow_bloc/app/app_prefs.dart';
-import 'package:login_flow_bloc/bloc/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/auth/auth_bloc.dart';
+import 'package:login_flow_bloc/bloc/language/language_cubit.dart';
 import 'package:login_flow_bloc/data/data_source/remote_data_source.dart';
 import 'package:login_flow_bloc/data/network/app_api.dart';
 import 'package:login_flow_bloc/data/network/dio_factory.dart';
@@ -35,7 +36,11 @@ Future<void> initAppModule() async {
         instance(),
       ));
 
-  //bloc
+  //blocs
+  instance.registerLazySingleton<LanguageCubit>(() => LanguageCubit(
+        instance(),
+      ));
+
   instance.registerLazySingleton<AuthBloc>(() => AuthBloc(
         instance(),
         instance(),

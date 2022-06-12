@@ -1,0 +1,33 @@
+{
+
+    "blogScreen" : "Pantalla de blog",
+    "enterEmail" : "Introduzca su correo electrónico aquí...",
+    "registrationSuccess" : "Registro exitoso",
+    "enterName" :"Introduzca su nombre aquí...",
+    "enterPassword" :"Ingrese su contraseña aquí...",
+    "alreadyRegistered" :"Ya registrado inicie sesión aquí",
+    "register" : "Registro",
+    "changeLanguage": "Idioma",
+    "login" : "Acceso",
+    "error" : "Error",
+    "notRegistered" :"Aún no registrado regístrese aquí",
+    "no_route_found": "No se encontró ninguna ruta",
+    "loading": "Cargando...",
+    "error_occurred": "Ocurrió un error",
+    "bad_request_error": "Solicitud incorrecta. inténtalo de nuevo más tarde",
+    "forbidden_error": "Petición prohibida. inténtalo de nuevo más tarde",
+    "unauthorized_error": "Usuario no autorizado, inténtalo de nuevo más tarde",
+    "not_found_error": "URL no encontrada, inténtalo de nuevo más tarde",
+    "conflict_error": "Conflicto encontrado, inténtalo de nuevo más tarde",
+    "internal_server_error": "Algo salió mal, inténtalo de nuevo más tarde",
+    "unknown_error": "Algo salió mal, inténtalo de nuevo más tarde",
+    "timeout_error": "Se agotó el tiempo, inténtalo de nuevo más tarde",
+    "default_error": "Algo salió mal, inténtalo de nuevo más tarde",
+    "cache_error": "Error de caché, inténtalo de nuevo más tarde",
+    "no_internet_error": "Por favor revise su conexion a internet",
+    "no_content": "Éxito sin contenido",
+    "french": "Français",
+    "english": "English",
+    "spanish":"Español"
+    
+  } 
