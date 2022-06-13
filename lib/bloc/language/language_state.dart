@@ -3,15 +3,17 @@ part of 'language_cubit.dart';
 
 class LanguageState extends Equatable {
   final Locale language;
-  
+  final bool setLocale;
+
   const LanguageState({
     required this.language,
-    
+    required this.setLocale,
   });
 
   const LanguageState.initial()
-      : language = ENGLISH_LOCALE;
-       
+      : language = ENGLISH_LOCALE,
+        setLocale = false;
+
   @override
-  List<Object?> get props => [language];
+  List<Object?> get props => [language, setLocale];
 }

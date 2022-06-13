@@ -18,17 +18,17 @@ class LanguageCubit extends Cubit<LanguageState> {
     } else {
       //save prefs with set language and emit new locale
       _appPreferences.setLanguageChanged(lang);
-      // switch (lang) {
-      //   case LanguageType.ENGLISH:
-      //     emit(const LanguageState(language: ENGLISH_LOCALE,setNewLanguage: true));
-      //     return;
-      //   case LanguageType.SPANISH:
-      //     emit(const LanguageState(language: SPANISH_LOCALE,setNewLanguage: true));
-      //     return;
-      //   case LanguageType.FRENCH:
-      //     emit(const LanguageState(language: FRENCH_LOCALE,setNewLanguage: true));
-      //     return;
-      // }
+      switch (lang) {
+        case LanguageType.ENGLISH:
+          emit(const LanguageState(language: ENGLISH_LOCALE, setLocale: true));
+          return;
+        case LanguageType.SPANISH:
+          emit(const LanguageState(language: SPANISH_LOCALE, setLocale: true));
+          return;
+        case LanguageType.FRENCH:
+          emit(const LanguageState(language: FRENCH_LOCALE, setLocale: true));
+          return;
+      }
     }
   }
 
@@ -36,11 +36,11 @@ class LanguageCubit extends Cubit<LanguageState> {
     String currentLanguage = await _appPreferences.getAppLAnguage();
 
     if (currentLanguage == LanguageType.SPANISH.getValue()) {
-      emit(const LanguageState(language: SPANISH_LOCALE,));
+      emit(const LanguageState(language: SPANISH_LOCALE, setLocale: false));
     } else if (currentLanguage == LanguageType.FRENCH.getValue()) {
-      emit(const LanguageState(language: FRENCH_LOCALE));
+      emit(const LanguageState(language: FRENCH_LOCALE, setLocale: false));
     } else {
-      emit(const LanguageState(language: ENGLISH_LOCALE));
+      emit(const LanguageState(language: ENGLISH_LOCALE, setLocale: false));
     }
   }
 }

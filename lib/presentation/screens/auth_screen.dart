@@ -27,7 +27,7 @@ class AuthScreen extends StatelessWidget {
       }
       final authError = state.authError;
       if (authError != null) {
-        showAuthError(authError: authError, context: context);
+        showAuthError(authError: authError.tr(), context: context);
       }
       if (state is AuthSuccessState && state.isLogin == false) {
         print('REGISTERED USER');

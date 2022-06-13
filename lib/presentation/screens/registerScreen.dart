@@ -26,7 +26,7 @@ class RegisterView extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title:  const Text(
+        title: const Text(
           AppStrings.register,
         ).tr(),
       ),
@@ -52,7 +52,7 @@ class RegisterView extends HookWidget {
             ),
             TextField(
               controller: passwordController,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
                 hintText: AppStrings.enterPassword.tr(),
               ),
               keyboardAppearance: Brightness.dark,
@@ -85,7 +85,10 @@ class RegisterView extends HookWidget {
                 AppStrings.alreadyRegistered,
               ).tr(),
             ),
-            const ShowLanguageButton(),
+            TextButton(
+              onPressed: () => changeLanguage(context),
+              child: const Text(AppStrings.changeLanguage).tr(),
+            ),
           ],
         ),
       ),

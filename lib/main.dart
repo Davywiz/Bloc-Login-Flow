@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:login_flow_bloc/presentation/resources/language_manager.dart';
 import 'package:login_flow_bloc/utils/bloc_observer.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:login_flow_bloc/translations/codegen_loader.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,10 +22,9 @@ void main() async {
             FRENCH_LOCALE,
             SPANISH_LOCALE,
           ],
+          assetLoader: CodegenLoader(),
           path: ASSETS_PATH_LOCALIZATION,
-          child: Phoenix(
-            child: const MyApp(),
-          ),
+          child: const MyApp(),
         ),
       );
     },

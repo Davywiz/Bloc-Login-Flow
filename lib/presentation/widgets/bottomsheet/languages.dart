@@ -6,18 +6,6 @@ import 'package:login_flow_bloc/presentation/resources/language_manager.dart';
 import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ShowLanguageButton extends StatelessWidget {
-  const ShowLanguageButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => changeLanguage(context),
-      child: const Text(AppStrings.changeLanguage).tr(),
-    );
-  }
-}
-
 void changeLanguage(BuildContext ctx) {
   showModalBottomSheet(
     context: ctx,
@@ -25,14 +13,17 @@ void changeLanguage(BuildContext ctx) {
       return GestureDetector(
         onTap: () {},
         behavior: HitTestBehavior.opaque,
-        child: const Languages(),
+        child: Languages(
+          context: ctx,
+        ),
       );
     },
   );
 }
 
 class Languages extends StatelessWidget {
-  const Languages({Key? key}) : super(key: key);
+  final BuildContext context;
+  const Languages({Key? key, required this.context}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +37,8 @@ class Languages extends StatelessWidget {
               children: LanguageType.values
                   .map(
                     (e) => ListTile(
-                      onTap: () {
+                      onTap: () async {
                         context.read<LanguageCubit>().setLanguageChanged(e);
-                        Phoenix.rebirth(context);
                       },
                       title: Text(
                         e.getTextString(),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart' show BuildContext;
 import 'package:login_flow_bloc/presentation/resources/strings_manager.dart';
 import 'package:login_flow_bloc/presentation/widgets/dialog/generic_dialog.dart';
@@ -8,7 +9,7 @@ Future<void> showAuthError({
 }) {
   return showGenericDialog<void>(
     context: context,
-    title: AppStrings.error,
+    title: AppStrings.error.tr(),
     content: authError,
     optionsBuilder: () => {
       'OK': true,
