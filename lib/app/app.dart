@@ -29,25 +29,23 @@ class NewHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LanguageCubit, LanguageState>(
-        listener: (context, state) async {
-          await context.setLocale(state.language);
-        },
-        listenWhen: (previous, next) => next.setLocale == true,
-        buildWhen: (previous, next) => next.setLocale == true,
-        builder: (context, state) {
-          return MaterialApp(
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            debugShowCheckedModeBanner: false,
-            title: 'Blog App',
-            initialRoute: Routes.splashScreen,
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
-            onGenerateRoute: RouteGenerator.getRoute,
-          );
-        });
+    return BlocListener<LanguageCubit, LanguageState>(
+      listener: (context, state) async {
+        await context.setLocale(state.language);
+      },
+      listenWhen: (previous, next) => next.setLocale == true,
+      child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        title: 'Blog App',
+        initialRoute: Routes.splashScreen,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        onGenerateRoute: RouteGenerator.getRoute,
+      ),
+    );
   }
 }
